@@ -1,0 +1,74 @@
+using UnityEngine;
+
+public enum ArmorType
+{
+    None,      // 없음
+    Light,     // 경갑
+    Medium,    // 평갑
+    Heavy      // 중갑
+}
+
+public enum ElementType
+{
+    None,      // 없음 (물리)
+    Fire,      // 불
+    Ice,       // 얼음
+    Lightning, // 번개
+    Water,     // 물
+    Wind,      // 바람
+    Earth,     // 땅
+    Dark,      // 암
+    Light,     // 빛
+    Normal     // 노말
+}
+
+[System.Serializable]
+public class CharacterStats
+{
+
+    [Header("유닛 속성/ 방어 타입")]
+    public ArmorType armorType;   // 방어구 타입
+    public ElementType elementType; // 속성 타입
+
+    [Header("기본 생명력 / 자원")]
+    public long maxHealth; // 최대 체력
+    public long currentHealth; // 현재 체력
+    public long maxMana; // 최대 마나
+    public long currentMana; // 현재 마나
+
+    [Header("공격관련 스텟")]
+    // 공격 관련 스탯
+    public long attackPower; // 공격력
+    public long criticalChance; // 치명타율
+    public long criticalDamageMultiplier; // 치명타 배수
+    public long elementalDamageIncrease; // 속성 피해 증가
+    public long damageIncrease; // 피해 증가
+    public long manaRegeneration; // 마나 회복량
+    public long penetration; // 관통력
+    public long skillCoefficientIncrease; // 스킬 계수 증가
+    public long manaOnKill; // 처치 시 마나 회복
+    public long lifeSteal; // 흡혈율
+    public long attackSpeed; // 공격 속도 (턴 속도 결정)
+
+    [Header("방어관련 스텟")]
+    // 방어 관련 스탯
+    public long defense; // 방어력
+    public long protectionRate; // 보호율
+    public long damageReductionRate; // 피해 감소율
+    public long damageReduction; // 피해 감소
+    public long evasionRate; // 회피율
+    public long recoveryAmount; // 회복량
+    public long health; // 생명력 (고정 수치 증가 등)
+    public long healthOnKill; // 처치 시 생명력 회복
+
+
+    [Header("직업 특수 스텟")]
+    // 특수 스텟(직업별 특수 스텟 )
+    public long placeHolder; // 임시 변수
+
+    // 자신과 똑같은 내용의 새 CharacterStats 객체를 만들어 반환하는 함수
+    public CharacterStats Clone()
+    {
+        return this.MemberwiseClone() as CharacterStats;
+    }
+}
