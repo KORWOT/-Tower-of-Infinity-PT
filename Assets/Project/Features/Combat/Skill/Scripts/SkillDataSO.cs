@@ -25,7 +25,12 @@ public class SkillDataSO : ScriptableObject
     public SkillRarity skillRarity;     // 스킬 희귀도
 
     [Header("스킬 효과 목록")]
-    [SerializeReference]
-    public List<SkillEffect> effects = new List<SkillEffect>(); // 스킬 효과 리스트
+    public DamageEffect damageEffect;           // 피해 효과
+    // 향후 추가될 다른 효과들
+    // public HealEffect healEffect;
+    // public BuffEffect buffEffect;
+
+
+
 
 }

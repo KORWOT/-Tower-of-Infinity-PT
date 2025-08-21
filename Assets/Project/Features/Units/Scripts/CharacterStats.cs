@@ -10,16 +10,15 @@ public enum ArmorType
 
 public enum ElementType
 {
-    None,      // 없음 (물리)
-    Fire,      // 불
-    Ice,       // 얼음
-    Lightning, // 번개
+    None,      // 없음
     Water,     // 물
+    Fire,      // 불
     Wind,      // 바람
     Earth,     // 땅
+    Lightning, // 전기
     Dark,      // 암
     Light,     // 빛
-    Normal     // 노말
+    Normal,    // 노말
 }
 
 [System.Serializable]

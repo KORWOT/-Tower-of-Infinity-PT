@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class DamageEffect : SkillEffect
 {
     public long skillCoefficient;
@@ -20,10 +22,10 @@ public class DamageEffect : SkillEffect
 
     // 3. 실제 피해를 받는 유닛에게 피해를 적용합니다.
     targetUnit.TakeDamage(finalDamage);
-    
+
     }
 
 
 
 
-}
+} 
