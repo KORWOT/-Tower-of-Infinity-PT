@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using SerializeReferenceEditor;
 
 public enum SkillRarity
 {
@@ -25,10 +26,8 @@ public class SkillDataSO : ScriptableObject
     public SkillRarity skillRarity;     // 스킬 희귀도
 
     [Header("스킬 효과 목록")]
-    public DamageEffect damageEffect;           // 피해 효과
-    // 향후 추가될 다른 효과들
-    // public HealEffect healEffect;
-    // public BuffEffect buffEffect;
+    [SerializeReference, SR]
+    public List<SkillEffect> skillEffects = new List<SkillEffect>();
 
 
 

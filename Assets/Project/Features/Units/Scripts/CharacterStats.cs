@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+
 public enum ArmorType
 {
     None,      // 없음
@@ -35,7 +36,7 @@ public class ElementalDamageBonus
 [System.Serializable]
 public class CharacterStats
 {
-
+    
     [Header("유닛 속성/ 방어 타입")]
     public ArmorType armorType;   // 방어구 타입
     public ElementType elementType; // 속성 타입

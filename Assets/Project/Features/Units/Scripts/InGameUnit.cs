@@ -1,14 +1,26 @@
 using UnityEngine;
+using System.Collections.Generic;
+
+public enum UnitFaction
+{
+    None,
+    Player,
+    Enemy,
+}
 
 public class InGameUnit : MonoBehaviour
 {
     [Header("유닛 기본 정보")]
     public UnitDataSO unitData;
+    public UnitFaction unitFaction; // 유닛 타입 , 플레이어, 적, 중립
+
 
     [Header("유닛 실시간 정보")]
     public CharacterStats currentStats;
 
     public int readiness;   // 유닛 준비도
+
+    public List<LearnedSkill> learnedSkills;
 
 
     void Awake()
@@ -47,5 +59,25 @@ public class InGameUnit : MonoBehaviour
     {
         LogManager.Log($"{gameObject.name}이(가) 사망했습니다.");
         // TODO: 여기에 유닛이 죽었을 때의 로직 (애니메이션, 비활성화 등)을 추가합니다.
+        
     }
+
+    [System.Serializable]
+    public class LearnedSkill
+    {
+        public SkillDataSO skill;
+        public int skillLevel;
+
+        public LearnedSkill(SkillDataSO skill, int skillLevel)
+        {
+            this.skill = skill;
+            this.skillLevel = skillLevel;
+        }
+    }
+
+    
+
+
+
+
 }

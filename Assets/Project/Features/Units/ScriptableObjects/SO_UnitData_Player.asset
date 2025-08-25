@@ -27,14 +27,13 @@ MonoBehaviour:
     attackPower: 5
     criticalChance: 0
     criticalDamageMultiplier: 0
-    elementalDamageIncrease: 0
     damageIncrease: 0
     manaRegeneration: 0
+    penetrationRate: 0
     penetration: 0
-    skillCoefficientIncrease: 0
     manaOnKill: 0
     lifeSteal: 0
-    attackSpeed: 0
+    attackSpeed: 30
     defense: 0
     protectionRate: 0
     damageReductionRate: 0
@@ -44,3 +43,4 @@ MonoBehaviour:
     health: 0
     healthOnKill: 0
     placeHolder: 0
+    elementalDamageBonuses: []

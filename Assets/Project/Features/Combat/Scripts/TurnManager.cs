@@ -5,6 +5,9 @@ using System.Linq;
 
 public class TurnManager : MonoBehaviour
 {
+
+    public static TurnManager Instance;
+
     [SerializeField] private List<InGameUnit> units;
 
     private int readinessThreshold = 10000;
@@ -13,7 +16,17 @@ public class TurnManager : MonoBehaviour
 
     private InGameUnit currentTurnUnit; // 현재 턴 유닛
 
-  
+    public void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void StartCombat()
     {
@@ -86,8 +99,8 @@ public class TurnManager : MonoBehaviour
 
     public List<InGameUnit> PredictTurnOrder()
     {
-        var preditList = units.OrderBy(unit => GetTicksToTurn(unit)).ToList();  // 턴 순서 예측
-        return preditList;  // 턴 순서 반환
+        var predictList = units.OrderBy(unit => GetTicksToTurn(unit)).ToList();  // 턴 순서 예측
+        return predictList;  // 턴 순서 반환
     }
 
     public void EndTurn()
@@ -105,5 +118,10 @@ public class TurnManager : MonoBehaviour
         {
             StartCoroutine(TurnProgressCoroutine());
         }
+    }
+
+    public List<InGameUnit> GetEnemyUnits()
+    {
+        return units.Where(unit => unit.unitFaction == UnitFaction.Enemy).ToList();
     }
 }

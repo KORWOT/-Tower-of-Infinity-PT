@@ -6,6 +6,11 @@ public class CombatManager : MonoBehaviour
 
     public ElementalMatchupTableSO elementalMatchupTable;
 
+    public void Start()
+    {
+        TurnManager.Instance.StartCombat();
+    }
+
     private void Awake()
     {
         if(Instance == null)

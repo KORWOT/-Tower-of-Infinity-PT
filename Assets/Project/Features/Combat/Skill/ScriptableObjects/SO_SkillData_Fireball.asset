@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90518572f77178e488fcdb348612d7c5, type: 3}
   m_Name: SO_SkillData_Fireball
   m_EditorClassIdentifier: 
-  skillName: "\uD30C\uC774\uC5B4\uBCFC"
-  skillDescription: 
+  skillName: "\uD30C\uC774\uC5B4\uBCFC\uD2B8"
+  skillDescription: "\uD30C\uC774\uC5B4\uBCFC\uD2B8"
   skillIcon: {fileID: 0}
-  elementType: 1
+  elementType: 2
   skillMaxLevel: 10
-  skillCooldown: 3
-  skillRarity: 0
-  damageEffect:
-    skillCoefficient: 100
-    scalavelCoefficient: 20
-    skillStaticDamage: 0
-    scalavelStaticDamage: 0
+  skillCooldown: 2
+  skillRarity: 1
+  skillEffects:
+  - rid: 6587120862099407046
+  references:
+    version: 2
+    RefIds:
+    - rid: 6587120862099407046
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        skillCoefficient: 130
+        scalavelCoefficient: 13
+        skillStaticDamage: 0
+        scalavelStaticDamage: 0

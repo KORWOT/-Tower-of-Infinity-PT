@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: "\uACE0\uBE14\uB9B0"
   unitDescription: "\uACE0\uBE14\uB9B0\uC124\uBA85"
-  unitPrefab: {fileID: 0}
+  unitPrefab: {fileID: 6962292007884670912, guid: 7eb5963762c6a2b408ac3da9ad3eabf5, type: 3}
   unitType: 1
   threatLevel: 1
   characterStats:
@@ -27,14 +27,13 @@ MonoBehaviour:
     attackPower: 0
     criticalChance: 0
     criticalDamageMultiplier: 0
-    elementalDamageIncrease: 0
     damageIncrease: 0
     manaRegeneration: 0
+    penetrationRate: 0
     penetration: 0
-    skillCoefficientIncrease: 0
     manaOnKill: 0
     lifeSteal: 0
-    attackSpeed: 0
+    attackSpeed: 5
     defense: 0
     protectionRate: 0
     damageReductionRate: 0
@@ -44,3 +43,4 @@ MonoBehaviour:
     health: 0
     healthOnKill: 0
     placeHolder: 0
+    elementalDamageBonuses: []
