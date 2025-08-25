@@ -8,8 +8,24 @@ public class InGameUnit : MonoBehaviour
     [Header("유닛 실시간 정보")]
     public CharacterStats currentStats;
 
+    public int readiness;   // 유닛 준비도
+
+
     void Awake()
     {
+        // Null 안전성 체크
+        if (unitData == null)
+        {
+            LogManager.LogError($"{gameObject.name}: UnitDataSO가 할당되지 않았습니다!");
+            return;
+        }
+        
+        if (unitData.characterStats == null)
+        {
+            LogManager.LogError($"{gameObject.name}: UnitDataSO의 CharacterStats가 null입니다!");
+            return;
+        }
+        
         currentStats = unitData.characterStats.Clone();
     }
 

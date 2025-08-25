@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -56,7 +57,7 @@ public class CharacterStats
     public long penetration; // 관통력
     public long manaOnKill; // 처치 시 마나 회복
     public long lifeSteal; // 흡혈율
-    public long attackSpeed; // 공격 속도 (턴 속도 결정)
+    public int attackSpeed; // 공격 속도 (턴 속도 결정)
 
     [Header("방어관련 스텟")]
     // 방어 관련 스탯
@@ -79,15 +80,32 @@ public class CharacterStats
 
     public long GetElementalDamageBonus(ElementType elementType)
     {
-        var elementalDamageBonus = elementalDamageBonuses.FirstOrDefault(b => b.elementType == elementType);
-        return elementalDamageBonus != null ? elementalDamageBonus.damageBonusRate : 0;
+        // Null 안전성 체크
+        if (elementalDamageBonuses == null)
+        {
+            LogManager.LogError("ElementalDamageBonuses 리스트가 null입니다!");
+            return 0;
+        }
+        
+        var elementalDamageBonus = elementalDamageBonuses.FirstOrDefault(b => b.elementType == elementType); // 속성 피해 증가 찾기
+        return elementalDamageBonus != null ? elementalDamageBonus.damageBonusRate : 0; // 속성 피해 증가 반환
     }
 
     // 자신과 똑같은 내용의 새 CharacterStats 객체를 만들어 반환하는 함수
     public CharacterStats Clone()
     {
         CharacterStats newStats = this.MemberwiseClone() as CharacterStats;
-        newStats.elementalDamageBonuses = new List<ElementalDamageBonus>(this.elementalDamageBonuses);
+        
+        // Null 안전성 체크
+        if (this.elementalDamageBonuses != null)
+        {
+            newStats.elementalDamageBonuses = new List<ElementalDamageBonus>(this.elementalDamageBonuses);
+        }
+        else
+        {
+            newStats.elementalDamageBonuses = new List<ElementalDamageBonus>();
+            LogManager.LogError("원본 CharacterStats의 elementalDamageBonuses가 null입니다. 빈 리스트로 초기화합니다.");
+        }
         
         return newStats;
     }

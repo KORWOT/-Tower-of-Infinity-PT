@@ -21,6 +21,16 @@ public static class LogManager
         Debug.Log($"[{GetTimestamp()}] {message}");
     }
 
+    public static void LogError(string message)
+    {
+        Debug.LogError($"[{GetTimestamp()}] [ERROR] {message}");
+    }
+    
+    public static void LogWarning(string message)
+    {
+        Debug.LogWarning($"[{GetTimestamp()}] [WARNING] {message}");
+    }
+
     public static void LogServer(string message)
     {
         // TODO: 추후 서버 구현시 서버 로그 전송 로직 추가

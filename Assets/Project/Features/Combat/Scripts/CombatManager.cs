@@ -11,7 +11,7 @@ public class CombatManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            
+            DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴 방지
         }
         else
         {
@@ -20,3 +20,4 @@ public class CombatManager : MonoBehaviour
     }
 
 }
+ 
